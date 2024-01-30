@@ -32,3 +32,10 @@ class GCD extends Module {
   io.outputGCD := x
   io.outputValid := y === 0.U
 }
+
+// 输出SystemVerilog代码
+import circt.stage.ChiselStage
+object VerilogMain extends App {
+  val result = ChiselStage.emitSystemVerilog(new GCD)
+  println(result)
+}
